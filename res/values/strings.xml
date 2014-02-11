@@ -6,6 +6,13 @@
     <string name="titleStatus">Status</string>
     <string name="hintText">Please enter your  140-character status message</string>
     <string name="buttonUpdate">Update</string>
+    <string name="titleUsername">Username</string>
+    <string name="summaryUsername">summary username</string>
+    <string name="titlePassword">Password</string>
+    <string name="summaryPassword"></string>
+    <string name="titleApiRoot"></string>
+    <string name="summaryApiRoot"></string>
+    <string name="titlePrefs">Prefs</string>
     
 
 </resources>
