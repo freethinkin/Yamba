@@ -6,5 +6,6 @@
     <string name="titleStatus">Status</string>
     <string name="hintText">Please enter your  140-character status message</string>
     <string name="buttonUpdate">Update</string>
+    
 
 </resources>
