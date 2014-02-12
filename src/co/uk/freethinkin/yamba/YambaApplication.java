@@ -31,6 +31,7 @@ public class YambaApplication extends Application implements OnSharedPreferenceC
 		Log.i(TAG, "onTerminated");
 	}
 	
+	//NOTE:synchronized cus multi threads may call this
 	public synchronized Twitter getTwitter() { //
 		if (this.twitter == null) {
 			
