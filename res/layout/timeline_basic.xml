@@ -5,8 +5,10 @@
 	
 	<!-- Title -->
 	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:layout_gravity="center"
-		android:layout_margin="10dp" android:text="@string/titleTimeline"
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center"
+		android:layout_margin="10dp" 
+		android:text="@string/titleTimeline"
 		android:textColor="#fff" android:textSize="30sp" />
 	
 	<!-- Text output wrapper -->
