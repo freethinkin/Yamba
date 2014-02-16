@@ -18,5 +18,6 @@
     <string name="titleTimeline">The Timeline</string>
     <string name="titlePurge">Purge</string>
     <string name="msgAllDataPurged">All data purged</string>
+    <string name="msgSetupPrefs">Set up PREFS</string>
 
 </resources>

@@ -111,4 +111,9 @@ public class YambaApplication extends Application implements OnSharedPreferenceC
 			return 0;
 		}
 	}
+	
+	public SharedPreferences getPrefs() {
+		return prefs;
+	}
+	
 }

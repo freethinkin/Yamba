@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StatusActivity extends Activity implements OnClickListener, TextWatcher {
+public class StatusActivity extends BaseActivity implements OnClickListener, TextWatcher {
 	
 	private static final String TAG = "StatusActivity";
 	EditText editText;
@@ -44,33 +44,33 @@ public class StatusActivity extends Activity implements OnClickListener, TextWat
 		
 	}
 	
-	// Called first time user clicks on the menu button
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater(); 
-		inflater.inflate(R.menu.menu, menu); 
-		
-		return true; 
-	}
+//	// Called first time user clicks on the menu button
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		MenuInflater inflater = getMenuInflater(); 
+//		inflater.inflate(R.menu.menu, menu); 
+//		
+//		return true; 
+//	}
 	
-	// Called when an options item is clicked
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) { 
-			case R.id.itemServiceStart:
-				startService(new Intent(this, UpdaterService.class)); 
-				break;
-			case R.id.itemServiceStop:
-				stopService(new Intent(this, UpdaterService.class)); 
-				break;
-			case R.id.itemPrefs:
-				startActivity(new Intent(this, PrefsActivity.class)); 
-				break;
-		}
-		
-		return true; 
-	}
-	
+//	// Called when an options item is clicked
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		switch (item.getItemId()) { 
+//			case R.id.itemServiceStart:
+//				startService(new Intent(this, UpdaterService.class)); 
+//				break;
+//			case R.id.itemServiceStop:
+//				stopService(new Intent(this, UpdaterService.class)); 
+//				break;
+//			case R.id.itemPrefs:
+//				startActivity(new Intent(this, PrefsActivity.class)); 
+//				break;
+//		}
+//		
+//		return true; 
+//	}
+//	
 	// Called when button is clicked 
 	public void onClick(View v) {
 			
