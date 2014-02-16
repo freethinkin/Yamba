@@ -13,9 +13,7 @@ public class TimelineActivity extends Activity {
 	SQLiteDatabase db;
 	Cursor cursor;
 	ListView listTimeline; 
-	SimpleCursorAdapter adapter;
-	static final String[] FROM = { DbHelper.C_CREATED_AT, DbHelper.C_USER,DbHelper.C_TEXT }; 
-	static final int[] TO = { R.id.textCreatedAt, R.id.textUser, R.id.textText };
+	TimelineAdapter adapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class TimelineActivity extends Activity {
 		
 		// Iterate over all the data and print it out
 		// Set up the adapter
-		adapter = new SimpleCursorAdapter(this, R.layout.row, cursor, FROM, TO); //
+		adapter = new TimelineAdapter(this, cursor);
 		listTimeline.setAdapter(adapter);
 	}
 }
