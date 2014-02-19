@@ -1,7 +1,6 @@
 package co.uk.freethinkin.yamba;
 
 import java.io.IOException;
-
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
@@ -17,18 +16,21 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TimelineActivity extends BaseActivity implements OnQueryTextListener, OnCloseListener,LoaderManager.LoaderCallbacks<Cursor> {
+//OnQueryTextListener, OnCloseListener,LoaderManager.LoaderCallbacks<Cursor>
+
+
+public class TimelineActivity extends BaseActivity implements  LoaderManager.LoaderCallbacks<Cursor> {
 	Cursor cursor;
 	ListView listTimeline;
 	SimpleCursorAdapter adapter;
 	static final String[] FROM = { DbHelper.C_CREATED_AT, DbHelper.C_USER,DbHelper.C_TEXT };
 	static final int[] TO = { R.id.textCreatedAt, R.id.textUser, R.id.textText };
 	
+	//private LoaderManager.LoaderCallbacks<Cursor> mCallbacks;
+	//private static final int LOADER_ID = 1;
+	
 	// View binder constant to inject business logic for timestamp to relative
 	// time conversion
-	
-	
-		
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,17 @@ public class TimelineActivity extends BaseActivity implements OnQueryTextListene
 			Toast.makeText(this, R.string.msgSetupPrefs, Toast.LENGTH_LONG).show();
 		}
 		
-		// Find your views
-		listTimeline = (ListView) findViewById(R.id.listTimeline);
+	
+//		// Get the data
+//		cursor = yamba.getStatusData().getStatusUpdates();
+//		listTimeline = (ListView) findViewById(R.id.listTimeline);
+//		adapter = new SimpleCursorAdapter(this, R.layout.row,cursor, FROM, TO,0);
+//		
+//		 
+//		//Set up Loader with callbacks
+//		mCallbacks = this;
+//		 LoaderManager lm = getLoaderManager();
+//		 lm.initLoader(LOADER_ID, null, mCallbacks);
 	}
 	
 	@Override
@@ -58,7 +69,7 @@ public class TimelineActivity extends BaseActivity implements OnQueryTextListene
 		super.onResume();
 		
 		// Setup List
-		this.setupList();
+		//this.setupList();
 	}
 	// Responsible for fetching data and setting up the list and the adapter
 	private void setupList() { //
@@ -66,63 +77,75 @@ public class TimelineActivity extends BaseActivity implements OnQueryTextListene
 		cursor = yamba.getStatusData().getStatusUpdates();
 	
 		// Setup Adapter
-		adapter = new SimpleCursorAdapter(this, R.layout.row,null, FROM, TO,0);
+		adapter = new SimpleCursorAdapter(this, R.layout.row,cursor, FROM, TO,0);
 		//adapter.setViewBinder(VIEW_BINDER); //
 		listTimeline.setAdapter(adapter);
 	}
 	
 
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		
+		return null;
     }
-	
-static final ViewBinder VIEW_BINDER = new ViewBinder(){
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+		// TODO Auto-generated method stub
 		
-		@Override 
-		public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		// TODO Auto-generated method stub
 		
-			if (view.getId() != R.id.textCreatedAt)
-				return false;
-				
-			// Update the created at text to relative time
-			long timestamp = cursor.getLong(columnIndex);
-			CharSequence relTime = DateUtils.getRelativeTimeSpanString(view.getContext(), timestamp);
-			((TextView) view).setText(relTime);
+	}
+	
+//static final ViewBinder VIEW_BINDER = new ViewBinder(){
 		
-			return true;
-		}
+//		@Override 
+//		public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+//		
+//			if (view.getId() != R.id.textCreatedAt)
+//				return false;
+//				
+//			// Update the created at text to relative time
+//			long timestamp = cursor.getLong(columnIndex);
+//			CharSequence relTime = DateUtils.getRelativeTimeSpanString(view.getContext(), timestamp);
+//			((TextView) view).setText(relTime);
+//		
+//			return true;
+//		}
+//
+//	};
 
-	};
-
-@Override
-public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
-	// TODO Auto-generated method stub
-	
-}
-
-@Override
-public void onLoaderReset(Loader<Cursor> arg0) {
-	// TODO Auto-generated method stub
-	
-}
-
-@Override
-public void onClose(IOException e) {
-	// TODO Auto-generated method stub
-	
-}
-
-@Override
-public boolean onQueryTextChange(String newText) {
-	// TODO Auto-generated method stub
-	return false;
-}
-
-@Override
-public boolean onQueryTextSubmit(String query) {
-	// TODO Auto-generated method stub
-	return false;
-}	
+//@Override
+//public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+//	// TODO Auto-generated method stub
+//	
+//}
+//
+//@Override
+//public void onLoaderReset(Loader<Cursor> arg0) {
+//	// TODO Auto-generated method stub
+//	
+//}
+//
+//@Override
+//public void onClose(IOException e) {
+//	// TODO Auto-generated method stub
+//	
+//}
+//
+//@Override
+//public boolean onQueryTextChange(String newText) {
+//	// TODO Auto-generated method stub
+//	return false;
+//}
+//
+//@Override
+//public boolean onQueryTextSubmit(String query) {
+//	// TODO Auto-generated method stub
+//	return false;
+//}	
 
 }
         
